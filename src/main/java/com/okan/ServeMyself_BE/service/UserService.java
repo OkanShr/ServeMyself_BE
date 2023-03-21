@@ -1,6 +1,5 @@
 package com.okan.ServeMyself_BE.service;
 
-//bound to
 
 import com.okan.ServeMyself_BE.dto.PasswordResetModel;
 import com.okan.ServeMyself_BE.dto.RegisterModel;

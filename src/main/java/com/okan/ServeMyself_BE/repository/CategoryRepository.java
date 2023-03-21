@@ -1,12 +1,11 @@
 package com.okan.ServeMyself_BE.repository;
 
-import com.okan.ServeMyself_BE.model.Orders;
+import com.okan.ServeMyself_BE.model.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
+
 
 @Repository
-public interface OrdersRepository extends JpaRepository<Orders,Long> {
-
+public interface CategoryRepository extends JpaRepository<Category, Long> {
 }

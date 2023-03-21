@@ -12,13 +12,9 @@ import javax.persistence.*;
 @Builder
 @Data
 @NoArgsConstructor
-public class Orders {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String username;
-    private String orderlist;
-    private String orderstatus;
-    private String ordertable;
-    private String orderdate;
+    private String categoryname;
 }

@@ -19,7 +19,7 @@ public class MailService {
 
     public void sendSimpleMessage(Mail mailModel) {
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("okan.shr@hotmail.com");
+        message.setFrom("servemyselfresetpwd@gmail.com");
         message.setTo(mailModel.getTo());
         message.setSubject(mailModel.getSubject());
         message.setText(mailModel.getText());
