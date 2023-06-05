@@ -2,6 +2,7 @@ package com.okan.ServeMyself_BE.service;
 
 import com.okan.ServeMyself_BE.exception.UserNotFoundException;
 import com.okan.ServeMyself_BE.model.Menu;
+import com.okan.ServeMyself_BE.model.Orders;
 import com.okan.ServeMyself_BE.repository.MenuRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,8 @@ public class MenuService {
         existing.setDescription(item.getDescription());
         existing.setCategory(item.getCategory());
         existing.setPrice(item.getPrice());
+        existing.setImageurl(item.getImageurl());
+        existing.setRestaurant(item.getRestaurant());
 
         return menuRepository.save(item);
     }
@@ -44,6 +47,10 @@ public class MenuService {
     {
         return menuRepository.findItemByName(name)
                 .orElseThrow(() -> new UserNotFoundException("Item Not Found!"));
+    }
+
+    public List<Menu> getMenuByRestaurant(String restaurant){
+        return menuRepository.findByRestaurant(restaurant);
     }
 
 

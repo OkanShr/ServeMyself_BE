@@ -28,7 +28,9 @@ public class OrderService {
         return orderRepository.findAll();
     }
 
-
+    public List<Orders> getOrdersByUsername(String username){
+        return orderRepository.findByUsername(username);
+    }
 
     public Orders update(Orders tray){
         Orders existing = findOrderByID(tray.getId());

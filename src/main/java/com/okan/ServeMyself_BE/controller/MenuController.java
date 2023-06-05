@@ -26,6 +26,13 @@ public class MenuController {
         return ResponseEntity.ok(new ArrayList<>(menuService.getMenu()));
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
+    @GetMapping("/{restaurant}")
+    public List<Menu> getMenuByRestaurant(@PathVariable String restaurant){
+        return menuService.getMenuByRestaurant(restaurant);
+    }
+
+
     @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping("/create-item")
     public ResponseEntity<?> createItem(@RequestBody Menu item){

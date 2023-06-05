@@ -19,7 +19,7 @@ public class Menu {
     private String name;
     private String description;
     private String price;
-    private String ImageUrl;
+    private String imageurl;
     private String category;
-
+    private String restaurant;
 }

@@ -20,7 +20,6 @@ public class AuthController {
     private final AuthService authService;
     private final ModelMapper modelMapper;
 
-    // when try post to related url
     @PostMapping("/register")
     public ResponseEntity<UserDTO> register(@RequestBody RegisterModel registerModel)
     {
@@ -33,7 +32,6 @@ public class AuthController {
         return ResponseEntity.ok(authService.tryLogin(loginModel));
     }
 
-    // when try get to related url
     @GetMapping("/me")
     public ResponseEntity<UserDTO> getMyself()
     {
