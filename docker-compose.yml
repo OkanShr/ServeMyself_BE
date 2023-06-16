@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    image: servemyself-be
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/servemyself_db?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: Xeranor6234!
+      jwt-variables.KEY: okan
+      SPRING_PROFILES_ACTIVE: prod
+
+    depends_on:
+      - db
+    #command: [ "java", "-jar", "ServeMyself_BE-be-0.0.1-SNAPSHOT.jar" ]
+    restart: always
+    networks:
+      - shared-net
+
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: Xeranor6234!
+      MYSQL_DATABASE: servemyself_db
+      MYSQL_PASSWORD: Xeranor6234!
+    ports:
+      - 3307:3306
+    volumes:
+      - db_data:/var/lib/mysql
+      #- ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: always
+    networks:
+      - shared-net
+
+
+
+volumes:
+  db_data:
+
+networks:
+  shared-net:
+    driver: bridge
